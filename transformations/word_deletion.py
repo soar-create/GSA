@@ -1,0 +1,28 @@
+from .transformation import Transformation
+import string
+
+class WordDeletion(Transformation):
+    """An abstract class that takes a sentence and transforms it by deleting a
+    single word.
+
+    letters_to_insert (string): letters allowed for insertion into words
+    """
+ 
+    def _get_transformations(self, current_text, indices_to_modify):
+        # words = current_text.words
+        transformed_texts = []
+        if len(current_text.words) > 1:
+            for i in indices_to_modify:
+                """
+                #MRPC,RTE
+                if len(current_text.sentence1words)==1 and i==0:
+                    continue
+                if len(current_text.sentence2words)==1 and i >= len(current_text.sentence1words):
+                    continue
+                else:
+                    transformed_texts.append(current_text.delete_word_at_index(i))
+                """
+                transformed_texts.append(current_text.delete_word_at_index(i))
+            
+        
+        return transformed_texts
